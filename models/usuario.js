@@ -101,7 +101,7 @@ usuarioSchema.methods.resetPassword = function (cb) {
       to: email_destination,
       subject: "Reseteo de contraseña",
       text: `Para resetear su constraseña haz clic en el siguiente link \n
-        http://localhost:3000/resetPassword/${token.token}`,
+            ${process.env.HOST}/resetPassword/${token.token}`,
     };
 
     mailer.sendMail(mailOptions, function (err) {
@@ -114,43 +114,42 @@ usuarioSchema.methods.resetPassword = function (cb) {
   });
 };
 
-// usuarioSchema.statics.findOneOrCreateByGoogle = function findOrCreate(
-//     condition,
-//     callback
-//     ) {
-//     const self = this;
 
-//     self.findOne(
-//         {
-//         $or: [
-//             {
-//             googleId: condition.id,
-//             email: condition.emails[0].value
-//             },
-//         ],
-//         },
-//         (err, result) => {
-//         if (result) { 
-//             callback(err, result);
-//         } else {
-//             console.log("=====CONDITION=====");
-//             console.log(condition);
-//             let values = {};
-//             values.googleId = condition.id;
-//             values.email = condition.emails[0].value;
-//             values.nombre = condition.displayName || "Sin Nombre";
-//             values.verificado = true;
-//             values.password = condition.id;
-//             console.log("=====VALUES=====");
-//             console.log(values);
-//             self.create(values, (err, result) => {
-//             if (err) console.log(err);
-//             return callback(err, result);
-//             });
-//         }
-//         }
-//     );
-// };
+
+usuarioSchema.statics.findOneOrCreateByGoogle = function findOrCreate(condition, callback) {
+  const self = this;
+
+  self.findOne(
+    {
+      $or: [
+        {
+          googleId: condition.id,
+          email: condition.emails[0].value
+        },
+      ],
+    },
+    (err, result) => {
+      if (result) {
+        callback(err, result);
+      } else {
+        console.log("=====CONDITION=====");
+        console.log(condition);
+        let values = {};
+        values.googleId = condition.id;
+        values.email = condition.emails[0].value;
+        values.nombre = condition.displayName || "Sin Nombre";
+        values.verificado = true;
+        values.password = condition.id;
+        console.log("=====VALUES=====");
+        console.log(values);
+        self.create(values, (err, result) => {
+          if (err) console.log(err);
+          return callback(err, result);
+        });
+      }
+    }
+  );
+};
 
 // usuarioSchema.statics.findOneOrCreateByFacebook = function findOneOrCreate(condition, callback) {
 //     const self = this;
