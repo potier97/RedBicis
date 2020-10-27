@@ -1,0 +1,28 @@
+{
+  "name": "red-bicis",
+  "version": "1.0.0",
+  "description": "Proyecto de Node con Express, App de Bicis para que sean alquiladas",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/potier97/RedBicis.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "heroku",
+    "api",
+    "jwt",
+    "login",
+    "OAuth"
+  ],
+  "author": "Nicolas Potier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/potier97/RedBicis/issues"
+  },
+  "homepage": "https://github.com/potier97/RedBicis#readme"
+}
