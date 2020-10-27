@@ -1,6 +1,6 @@
 
 require('dotenv').config();
-require('newrelic');
+//require('newrelic');
 
 var createError = require('http-errors');
 var express = require('express');
@@ -40,6 +40,7 @@ if (process.env.NODE_ENV === "development") {
   });
 }
 
+
 var app = express();
 
 app.set("secretKey", "fefe23901jkds98nwe");
@@ -55,7 +56,8 @@ app.use(
 
 var mongoose = require('mongoose');
 
-var mongoDB = process.env.MONGO_URI;
+
+var mongoDB = process.env.MONGO_URI
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
@@ -98,7 +100,7 @@ app.get("/forgotPassword", function (req, res) {
 });
 
 app.post("/forgotPassword", function (req, res, next) {
-  const { email } = req.body; 
+  const { email } = req.body;
   Usuario.findOne({ email }, function (err, usuario) {
     if (!usuario)
       return res.render("session/forgotPassword", {
@@ -158,47 +160,47 @@ app.use('/users', usersRouter);
 app.use('/bicicletas', loggedIn, bicicletasRouter);
 app.use('/api/bicicletas', validarUsuario, bicicletasAPIRouter);
 app.use("/api/auth", authAPIRouter);
-app.use('/api/usuarios',usuariosAPIRouter);
+app.use('/api/usuarios', usuariosAPIRouter);
 app.use("/usuarios", usuariosRouter);
 app.use("/token", tokenRouter);
 
-app.get(
-  "/auth/google",
-  passport.authenticate("google", {
-    scope: [
-      'https://www.googleapis.com/auth/plus.login',
-      'https://www.googleapis.com/auth/plus.profile.emails.read',
-      'profile',
-      'email'
-    ],
-  })
-);
+// app.get(
+//   "/auth/google",
+//   passport.authenticate("google", {
+//     scope: [
+//       'https://www.googleapis.com/auth/plus.login',
+//       'https://www.googleapis.com/auth/plus.profile.emails.read',
+//       'profile',
+//       'email'
+//     ],
+//   })
+// );
 
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "/bicicletas",
-    failureRedirect: "/error,",
-  })
-);
+// app.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     successRedirect: "/bicicletas",
+//     failureRedirect: "/error,",
+//   })
+// );
 
 
-app.use('/privacy_policy', (req, res) => {
-  res.sendFile('public/privacy_policy.html');
-});
+// app.use('/privacy_policy', (req, res) => {
+//   res.sendFile('public/privacy_policy.html');
+// });
 
-app.use('/google41ce4fbadbeb6963', (req, res) => {
-  res.sendFile('public/google41ce4fbadbeb6963.html');
-});
+// app.use('/google41ce4fbadbeb6963', (req, res) => {
+//   res.sendFile('public/google41ce4fbadbeb6963.html');
+// });
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -1,14 +1,21 @@
-var mymap = L.map('main_map').setView([-34.604675,-58.3826587], 8);
+var mymap = L.map('main_map').setView([4.594911, -74.123508], 15.5);
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
 
+var circle = L.circle([4.594911, -74.123508], {
+    color: '#33658a',
+    fillColor: '#33658a',
+    fillOpacity: 0.25,
+    radius: 400
+ }).addTo(mymap);
+
 $.ajax({
     dataType: "json",
     headers: {
-        'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYjg2YjBmM2UxZTg3NDEzY2ViYTg4NiIsImlhdCI6MTU4OTE0NTI3MSwiZXhwIjoxNTg5MTg4NDcxfQ.VTxNChgO1QubUSdA4eAo3UUVtwbtjK_rW_JOZRszc0I'
+        'x-access-token': process.env.NODE_MAP
     },
     url: "api/bicicletas",
     success: function(result){
@@ -18,3 +25,4 @@ $.ajax({
         });
     }
 })
+ 

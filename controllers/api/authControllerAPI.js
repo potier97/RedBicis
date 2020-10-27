@@ -6,29 +6,21 @@ module.exports = {
   authenticate: function (req, res, next) {
     const { email, password } = req.body;
     Usuario.findOne({ email }, function (err, userInfo) {
-
       if (err) next(err);
       else {
-       
         if (userInfo === null) { return res.status(401).json({ status: "error", message: "Usuario inválido", data: null }); }
-        
         if (userInfo !== null && bcrypt.compareSync(password, userInfo.password)) {
-
-          const token = jwt.sign({ id: userInfo._id },req.app.get("secretKey"), { expiresIn: "12h" });
-          
+          const token = jwt.sign({ id: userInfo._id },req.app.get("secretKey"), { expiresIn: "1d" });
           res.status(200).json({
             message: "Usuario encontrado",
             data: { userInfo, token },
-          });
-            
+          }); 
         } else {
-
             res.status(401).json({
                 status: "error",
                 message: "Usuario o password inválido",
                 data: null,
             });
-
         }
       }
     });
@@ -52,6 +44,8 @@ module.exports = {
       });
     });
   },
+
+
   authFacebookToken: function (req, res, next) {
     if (req.user) {
       req.user.save().then(() => {
