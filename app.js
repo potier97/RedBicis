@@ -185,13 +185,13 @@ app.use("/token", tokenRouter);
 // );
 
 
-// app.use('/privacy_policy', (req, res) => {
-//   res.sendFile('public/privacy_policy.html');
-// });
+app.use('/privacy_policy', (req, res) => {
+  res.sendFile('public/privacy_policy.html');
+});
 
-// app.use('/google41ce4fbadbeb6963', (req, res) => {
-//   res.sendFile('public/google41ce4fbadbeb6963.html');
-// });
+app.use('/google018e95e29e030dcb', (req, res) => {
+  res.sendFile('public/google018e95e29e030dcb.html');
+});
 
 
 // catch 404 and forward to error handler
