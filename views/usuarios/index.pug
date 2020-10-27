@@ -1,0 +1,20 @@
+extends ../layout
+block content
+  a.btn.btn-success(href='/usuarios/create') Nuevo usuario
+  br
+  table.table
+    thead
+      tr
+        th(scope='col') Nombre
+        th(scope='col') Correo
+        th(scope='col') Verificado
+        th(scope='col')
+        th(scope='col')
+      tbody
+        each usuario in usuarios
+          tr
+            td=usuario.nombre
+            td=usuario.email
+            td=usuario.verificado ? 'Sí':'No'
+            td
+              a.btn(href=`usuarios/${usuario.id}/update`) Editar

@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "fb12dc52-32f1-4f09-a905-3c78ddff19f9",
+		"name": "ApiBicicletas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Bicicletas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYjg2YjBmM2UxZTg3NDEzY2ViYTg4NiIsImlhdCI6MTU4OTI4Mzk5NywiZXhwIjoxNTg5ODg4Nzk3fQ.ivWNyGPrpdfGhvjJ1J0dk2L9o6sRaoe1i5Hl3ZJMgZc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://redbicicletasapp.herokuapp.com/api/bicicletas",
+					"protocol": "https",
+					"host": [
+						"redbicicletasapp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"bicicletas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST bicicletas/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYjg2YjBmM2UxZTg3NDEzY2ViYTg4NiIsImlhdCI6MTU4OTE0NTI3MSwiZXhwIjoxNTg5MTg4NDcxfQ.VTxNChgO1QubUSdA4eAo3UUVtwbtjK_rW_JOZRszc0I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": 4,\n\t\"color\": \"violeta\",\n\t\"modelo\": \"montaña\",\n\t\"lat\": -34.333396,\n\t\"lng\": -58.90902\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://redbicicletasapp.herokuapp.com/api/bicicletas/create",
+					"protocol": "https",
+					"host": [
+						"redbicicletasapp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"bicicletas",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST bicicletas/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\" : 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://redbicicletasapp.herokuapp.com/api/bicicletas/delete",
+					"protocol": "https",
+					"host": [
+						"redbicicletasapp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"bicicletas",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST bicicletas/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYjg2YjBmM2UxZTg3NDEzY2ViYTg4NiIsImlhdCI6MTU4OTE0NTI3MSwiZXhwIjoxNTg5MTg4NDcxfQ.VTxNChgO1QubUSdA4eAo3UUVtwbtjK_rW_JOZRszc0I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": 4,\n\t\"color\": \"amarillo\",\n\t\"modelo\": \"montaña\",\n\t\"lat\": -34.5414996,\n\t\"lng\": -58.90902\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://redbicicletasapp.herokuapp.com/api/bicicletas/update/4",
+					"protocol": "https",
+					"host": [
+						"redbicicletasapp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"bicicletas",
+						"update",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Auth/authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\" : \"test@gmail.com\",\n\t\"password\" : \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://redbicicletasapp.herokuapp.com/api/auth/authenticate",
+					"protocol": "https",
+					"host": [
+						"redbicicletasapp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST usuarios/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"Testing\",\n\t\"email\": \"test@gmail.com\",\n\t\"password\" : \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://redbicicletasapp.herokuapp.com/api/usuarios/create",
+					"protocol": "https",
+					"host": [
+						"redbicicletasapp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"usuarios",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST auth/facebook_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"access_token\": \"EAAPzwnQ3cOUBAPqUxOmNRAEd7IJnz3DEWab71WLBZBRhZBIrG9U7a3mnqRu0Jg1ByuGhAHEVzizGEBqrZAnYVQyrgajPAWzCYZARWv5DD70nOwUD5RqWRuZBRLztpIZCRx0nZCNFSb5gRqHUgpAZBo8jYv2pkZBbMX0nx50jZA4RB7VbHrlVvShog1gtif6YEo3t5zeb94rMnDoTlNUuZB3yPif\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://redbicicletasapp.herokuapp.com/api/auth/facebook_token",
+					"protocol": "https",
+					"host": [
+						"redbicicletasapp",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"facebook_token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,97 @@
+extends layout
+
+block content
+
+  // Navigation
+  nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+    .container
+      a.navbar-brand.js-scroll-trigger(href='#page-top') Red Biciletas
+      button.navbar-toggler.navbar-toggler-right(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
+        | Menu
+        i.fas.fa-bars
+      #navbarResponsive.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='#about') Nosotros
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='#projects') Bicicletas
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='#signup') Contacto
+  // Header
+  header.masthead
+    .container.d-flex.h-100.align-items-center
+      .mx-auto.text-center
+        h1.mx-auto.my-0.text-uppercase RED BICICLETAS
+        h2.text-white-50.mx-auto.mt-2.mb-5 La primera comunidad online de ciclistas urbanos
+        a.btn.btn-primary.js-scroll-trigger(href='#about') Comenzar
+  // About Section
+  section#about.about-section.text-center
+    .container
+      .row
+        .col-lg-8.mx-auto
+          h2.text-white.mb-4 Nosotros
+          p.text-white-50
+            | Primera empresa de servicio de bicicleta sustentable.
+      img.img-fluid(src='/images/ipad.png' alt='')
+  // Map Section
+  section#projects.projects-section.bg-light
+    .container
+      h4.text-uppercase.m-0  Welcome to Express
+      a(href='/bicicletas') Admin Bicicletas
+      #main_map
+
+  // Signup Section
+  section#signup.signup-section
+    .container
+      .row
+        .col-md-10.col-lg-8.mx-auto.text-center
+          i.far.fa-paper-plane.fa-2x.mb-2.text-white
+          h2.text-white.mb-5 Envianos tu consulta!
+          form.form-inline.d-flex
+            input#inputEmail.form-control.flex-fill.mr-0.mr-sm-2.mb-3.mb-sm-0(type='email' placeholder='Ingrese su correo electrónico...')
+            button.btn.btn-primary.mx-auto(type='submit') Suscribite
+  // Contact Section
+  section.contact-section.bg-black
+    .container
+      .row
+        .col-md-4.mb-3.mb-md-0
+          .card.py-4.h-100
+            .card-body.text-center
+              i.fas.fa-map-marked-alt.text-primary.mb-2
+              h4.text-uppercase.m-0 Dirección
+              hr.my-4
+              .small.text-black-50 4923 Av. San Martin, Buenos Aires
+        .col-md-4.mb-3.mb-md-0
+          .card.py-4.h-100
+            .card-body.text-center
+              i.fas.fa-envelope.text-primary.mb-2
+              h4.text-uppercase.m-0 Email
+              hr.my-4
+              .small.text-black-50
+                a(href='#') info@redbicicletas.com.ar
+        .col-md-4.mb-3.mb-md-0
+          .card.py-4.h-100
+            .card-body.text-center
+              i.fas.fa-mobile-alt.text-primary.mb-2
+              h4.text-uppercase.m-0 Teléfono
+              hr.my-4
+              .small.text-black-50 +1 (555) 902-8832
+      .social.d-flex.justify-content-center
+        a.mx-2(href='#')
+          i.fab.fa-twitter
+        a.mx-2(href='#')
+          i.fab.fa-facebook-f
+        a.mx-2(href='#')
+          i.fab.fa-github
+  // Footer
+  footer.bg-black.small.text-center.text-white-50
+    .container
+      | Copyright &copy; Red Bicicletas 2020
+  // Bootstrap core JavaScript
+  script(src='/javascripts/jquery/jquery.min.js')
+  script(src='/javascripts/bootstrap/js/bootstrap.bundle.min.js')
+  // Plugin JavaScript
+  script(src='/javascripts/jquery-easing/jquery.easing.min.js')
+  // Custom scripts for this template
+  script(src='/javascripts/js/grayscale.min.js')
+  script(src='/javascripts/map.js')
