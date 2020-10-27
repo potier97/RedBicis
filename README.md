@@ -1,17 +1,22 @@
-# PAGINA DE BICIS
+<h1 align="center">
+  <img src="public\images\14886.png"/><br/>
+  <a href="https://bicired.herokuapp.com/">BICI RED</a>
+</h1> 
 
-Este es un proyecto para la creacion de una app Web del lado del servidor 
+Este es un proyecto para la creacion de una app Web del lado del servidor utilizando Node y Express, bajo la arquitectura MVC, se encuentra alojado en Heroku: [Bici Red](https://bicired.herokuapp.com/)
+
+
+
 
 ## Instalación
 
-Use the package manager [nmp](https://npm.com) to install packages.
+Utiliza [nmp](https://npm.com) para manejar las dependencias e instalarlas.
 
 ```bash
 npm install
 ```
 
 
-## IMPORTANTE - MONGOD DEBE CORRER COMO SERVICIO PARA PODER CORRER LA DB 
 
 ## Principal
 
